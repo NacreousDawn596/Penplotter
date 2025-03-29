@@ -67,7 +67,7 @@ python3 manual.py /path/to/image
 
 #### 🖼️ Automatic Image-to-Sketch Conversion
 ```bash
-python3 main.py -h  # Show help command
+python3 main.py -h  # Show help command, adjust the parameters as needed. almost every image needs its own parameters.
 ```
 Example:
 ```bash
