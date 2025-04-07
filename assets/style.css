@@ -1,0 +1,28 @@
+.feature-card:hover {
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+}
+
+.pdf-container {
+    min-height: 600px;
+}
+
+.nav-tabs .nav-link.active {
+    background-color: #f8f9fa;
+    border-color: #dee2e6 #dee2e6 #fff;
+}
+
+.command-box {
+    background: #1a1a1a;
+    border-radius: 8px;
+    padding: 1rem;
+    position: relative;
+}
+
+.copy-icon {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    color: #6c757d;
+}
