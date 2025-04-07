@@ -13,6 +13,7 @@ pkgs.mkShell {
     pkgs.gtk2
     pkgs.gtk2.dev
     pkgs.tk
+    pkgs.imagemagick
   ];
 }
 

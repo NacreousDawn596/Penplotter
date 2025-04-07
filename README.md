@@ -53,6 +53,7 @@ python3 -m venv venv
 source venv/bin/activate  # On Windows, use 'venv\Scripts\activate'
 pip install -r requirements.txt
 ```
+*install the `imagemagick` package as well if you wanna use the manual method, it's available in most package managers... or compile it from <a href="https://github.com/ImageMagick/ImageMagick">here</a>.*
 
 ### ✏️ Usage
 #### 📌 Manual Drawing via GUI
