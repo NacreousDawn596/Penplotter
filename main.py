@@ -47,7 +47,6 @@ if __name__ == "__main__":
 
     contours = imageUtils.image_to_contours(
         img=sketch_result,
-        output_file=args.output,
         n=args.n,
         canny_threshold1=args.canny_threshold1,
         canny_threshold2=args.canny_threshold2,

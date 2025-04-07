@@ -15,5 +15,13 @@ pkgs.mkShell {
     pkgs.tk
     pkgs.imagemagick
   ];
+
+  shellHook = ''
+    if [ ! -d "bin" ]; then
+      ${python}/bin/python3 -m venv ./
+    fi
+    source ./bin/activate
+    pip install -r requirements.txt
+  '';
 }
 

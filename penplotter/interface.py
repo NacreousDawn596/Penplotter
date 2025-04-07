@@ -8,50 +8,6 @@ def show_and_save(contours, scale=1, offset_x=0, offset_y=0, container=2000, out
     screen.setworldcoordinates(-container, -container, container, container)
     
     t = turtle.Turtle()
-    def draw_axes(x_max, y_max):
-        t.speed(0)
-        t.penup()
-        t.goto(-x_max, 0)
-        t.pendown()
-        t.goto(x_max, 0)
-        t.penup()
-        t.goto(0, -y_max)
-        t.pendown()
-        t.goto(0, y_max)
-        t.penup()
-
-    def draw_grid(x_max, y_max, step=1000):
-        t.speed(0)
-        t.color("gray")
-        for x in range(-x_max, x_max + step, step):
-            if x == 0:
-                continue
-            t.penup()
-            t.goto(x, -y_max)
-            t.pendown()
-            t.goto(x, y_max)
-        for y in range(-y_max, y_max + step, step):
-            if y == 0:
-                continue
-            t.penup()
-            t.goto(-x_max, y)
-            t.pendown()
-            t.goto(x_max, y)
-        t.penup()
-        t.color("black")
-        
-    def draw_labels(x_max, y_max, step=500):
-        t.speed(0)
-        t.color("black")
-        t.penup()
-        for x in range(-x_max, x_max + step, step):
-            t.goto(x, -20)
-            t.write(str(x), align="center", font=("Arial", 12, "normal"))
-        for y in range(-y_max, y_max + step, step):
-            if y != 0:
-                t.goto(-30, y - 5)
-                t.write(str(y), align="right", font=("Arial", 12, "normal"))
-    
     t.speed(0)
     # draw_grid(container, container)
     draw_axes(container, container)

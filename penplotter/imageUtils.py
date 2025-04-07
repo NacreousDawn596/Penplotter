@@ -10,7 +10,7 @@ def resize_image(image_path, scale_factor=2):
     img_resized.save(new_image_path)
     return new_image_path
 
-def image_to_contours(img, n=10, canny_threshold1=50, canny_threshold2=150, pen_diameter=2, max_widthh=2000, multiplier=4.5):    
+def image_to_contours(img, n=10, canny_threshold1=50, canny_threshold2=150, pen_diameter=2, max_width=2000, multiplier=4.5):    
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     blurred = cv2.GaussianBlur(gray, (5, 5), 0)
     edges = cv2.Canny(blurred, canny_threshold1, canny_threshold2)
@@ -22,7 +22,7 @@ def image_to_contours(img, n=10, canny_threshold1=50, canny_threshold2=150, pen_
     contours, _ = cv2.findContours(edges, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
 
     height, width = img.shape[:2]
-    scale =  multiplier*max_widthh / max(width, height)
+    scale =  multiplier*max_width / max(width, height)
     simplified_contours = []
 
     for contour in contours:
@@ -35,7 +35,7 @@ def image_to_contours(img, n=10, canny_threshold1=50, canny_threshold2=150, pen_
         if approx.ndim == 1: 
             approx = np.expand_dims(approx, axis=0)
 
-        scaled = [(int(x * scale), multiplier*max_widthh - int(y * scale)) for (x, y) in approx]
+        scaled = [(int(x * scale), multiplier*max_width - int(y * scale)) for (x, y) in approx]
         simplified_contours.append(scaled)
 
     all_points = [pt for contour in simplified_contours for pt in contour]
