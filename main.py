@@ -32,19 +32,17 @@ if __name__ == "__main__":
     if sketch_result is None:
         print("ta finahiya had tswira??")
         sys.exit()
-
-    processed_image = sketch_result
     
     try:
         os.mkdir(args.output)
+        os.chdir(args.output)
     except FileExistsError:
         print(f"Directory '{args.output}' already exists.")
+        os.chdir(args.output)
     except Exception as e:
         print(f"hhh wtf: {e}")
         sys.exit(1)
     
-        img=processed_image,
-
     contours = imageUtils.image_to_contours(
         img=sketch_result,
         n=args.n,

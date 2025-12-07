@@ -6,6 +6,7 @@
 ---
 
 ## ✨ Features
+- **Modern Web UI**: A sleek, user-friendly Electron application for easy control and visualization.
 - **High-Precision Movement**: DC motors with encoders ensure accurate X/Y/Z-axis positioning.
 - **Interactive GUI**: Built with Python and Tkinter for shape design and command execution.
 - **3D-Printed Frame**: Customizable modular structure for easy assembly.
@@ -52,10 +53,45 @@ nix-shell
 python3 -m venv venv
 source venv/bin/activate  # On Windows, use 'venv\Scripts\activate'
 pip install -r requirements.txt
+arduino-cli core install arduino:avr
+arduino-cli lib install Stepper
 ```
 *install the `imagemagick` package as well if you wanna use the manual method, it's available in most package managers... or compile it from <a href="https://github.com/ImageMagick/ImageMagick">here</a>.*
 
-### ✏️ Usage
+### 🖥️ Electron Web UI (Recommended)
+
+The easiest way to use the Pen Plotter is via the bundled Electron application.
+
+#### Linux (AppImage)
+1.  Download the latest `PenPlotter-x.x.x.AppImage` from the releases (or build it locally).
+2.  Make it executable:
+    ```bash
+    chmod +x PenPlotter-1.0.0.AppImage
+    ```
+3.  Run it:
+    ```bash
+    ./PenPlotter-1.0.0.AppImage
+    ```
+
+#### Building from Source
+If you want to build the application yourself:
+
+1.  **Install Dependencies**:
+    Ensure you have `npm`, `python3`, and `arduino-cli` installed.
+    ```bash
+    # Install Python dependencies
+    pip install -r webui/backend/requirements.txt
+    ```
+
+2.  **Build the App**:
+    ```bash
+    cd webui/electron
+    npm install
+    npm run dist
+    ```
+    The output will be in `webui/electron/dist`.
+
+### ✏️ Legacy / Manual Usage
 #### 📌 Manual Drawing via GUI
 ```bash
 python3 manual.py /path/to/image

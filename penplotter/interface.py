@@ -1,6 +1,6 @@
-import turtle
 
 def show_and_save(contours, scale=1, offset_x=0, offset_y=0, container=2000, output_file="file.ino"):
+    import turtle
     screen = turtle.Screen()
     screen.tracer(0, 0)
     screen.setup(800, 800)
@@ -129,6 +129,7 @@ void loop() {
     screen.mainloop()
     
 def draw_axes(x_max, y_max):
+    import turtle
     turtle.speed(0)
     turtle.penup()
     
@@ -143,6 +144,7 @@ def draw_axes(x_max, y_max):
     turtle.penup()
 
 def draw_grid(x_max, y_max, step=500):
+    import turtle
     turtle.speed(0)
     turtle.color("gray")
     
@@ -166,6 +168,7 @@ def draw_grid(x_max, y_max, step=500):
     turtle.color("black")
     
 def draw_labels(x_max, y_max, step=500):
+    import turtle
     turtle.speed(0)
     turtle.color("black")
     turtle.penup()
@@ -247,6 +250,8 @@ class Plan {
     }
 };
 
+void loop() {}
+
 void setup() {
     stepper1.setSpeed(10);
     stepper2.setSpeed(10);
@@ -263,13 +268,13 @@ void setup() {
 """
     
     for polygon in polygons:
-        actual_code += f"cursor.move({polygon[0][0]}, {polygon[0][1]})"
-        actual_code += "\ncursor.pendown()\n"
+        actual_code += f"cursor.move({polygon[0][0]}, {polygon[0][1]});"
+        actual_code += "\ncursor.pendown();\n"
         for x, y in polygon[1:]:
-            actual_code += f"cursor.move({x}, {y})\n"
-        actual_code += "cursor.penup()\n"
+            actual_code += f"cursor.move({x}, {y});\n"
+        actual_code += "cursor.penup();\n"
         
-    actual_code += "cursor.move(-2000, -2000);\n"
+    actual_code += "cursor.move(-2000, -2000);\n}"
             
 
     with open(f"{name}.ino", "w") as file:

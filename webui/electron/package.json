@@ -1,0 +1,52 @@
+{
+    "name": "penplotter-webui",
+    "version": "1.0.0",
+    "description": "Pen Plotter Web UI",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron .",
+        "dist": "electron-builder"
+    },
+    "author": "User",
+    "license": "MIT",
+    "devDependencies": {
+        "electron": "^33.2.1",
+        "electron-builder": "^25.1.8"
+    },
+    "build": {
+        "appId": "com.penplotter.webui",
+        "productName": "PenPlotter",
+        "files": [
+            "main.js",
+            "preload.js",
+            {
+                "from": "../frontend/dist",
+                "to": "frontend",
+                "filter": [
+                    "**/*"
+                ]
+            }
+        ],
+        "extraResources": [
+            {
+                "from": "../backend/dist",
+                "to": "backend",
+                "filter": [
+                    "penplotter-backend*"
+                ]
+            }
+        ],
+        "linux": {
+            "target": [
+                "AppImage"
+            ],
+            "category": "Utility"
+        },
+        "win": {
+            "target": "nsis"
+        },
+        "mac": {
+            "target": "dmg"
+        }
+    }
+}
